@@ -1,0 +1,24 @@
+{
+  "name": "super-track",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./web/app.js",
+    "dev": "nodemon ./web/app.js"
+  },
+  "dependencies": {
+    "async": "^3.2.4",
+    "axios": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dns": "^0.2.2",
+    "express": "~4.16.1",
+    "geoip-lite": "^1.4.7",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.16",
+    "ssl-checker": "^2.0.8",
+    "tls": "^0.0.1"
+  }
+}

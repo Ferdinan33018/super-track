@@ -1,0 +1,3 @@
+node_modules/*
+web/utils/hosts.js
+.git_/*

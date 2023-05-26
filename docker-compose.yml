@@ -1,0 +1,51 @@
+version: '3.1'
+
+services:
+    es05:
+      image: elasticsearch:7.9.2
+      container_name: es05
+      hostname: es05
+      environment:
+        - "discovery.type=single-node"
+        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+        - "xpack.monitoring.enabled=true"
+      volumes:
+        - ./es005:/usr/share/elasticsearch/data
+      ports:
+        - 9200:9200
+
+    kibana5:
+      image: kibana:7.9.2
+      container_name: kibana5
+      hostname: kibana5
+      ports:
+        - 5601:5601
+      environment:
+        ELASTICSEARCH_URL: http://es05:9200
+        ELASTICSEARCH_HOSTS: http://es05:9200
+      depends_on:
+        - es05   
+
+    logstash5:
+      image: docker.elastic.co/logstash/logstash:7.14.2
+      container_name: logstash5
+      hostname: logstash5
+      ports:
+        - 9600:9600
+        - 5044:5044
+        - 8082:8082
+      volumes:
+        - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+        - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      environment:
+        ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      depends_on:
+        - es05   
+
+
+
+
+
+
+
+    
