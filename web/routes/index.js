@@ -63,10 +63,48 @@ router.get('/monitorHttp2Elastic', async function (req, res) {
 
 
   //await monitorDNS(webAddresses);
-  res.json({ 'data': 'respBatch', 'len:': 'respBatch.length' });
+  res.json({ 'message': 'executando batch logstash', 'timeBatch:': '60s' });
 });
 
 
+
+router.get('/graphTest', async function (req, res) {
+
+  const listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
+
+  const hostsn = listHttp.map((m, i) => ({
+    'id':     i,
+    'label':  m.split('/')[2],
+    'url':    m,
+    'depends_on': [i, random(i, listHttp.length-1)]
+  }))
+
+  const nodes = [...hostsn].map((m, i) => ({
+    'id':     i,
+    'label':  m.label,
+    'x':      random(0, 100),
+    'y':      random(0, 100),
+    'size':   1.5 + hostsn.map(m => (m.depends_on)).flatMap(f => (f)).filter(x => (x === m.id)).length
+  }))
+  
+  const edges = hostsn.flatMap(m => (
+    m.depends_on.map((t, i) => ({
+        id: random(0, 99999999), 
+        source: nodes[m.id].id, 
+        target: nodes[t].id,
+        color: '#ccc'
+    }))
+  ));
+
+  //const responseList = await monitorHttpRequest(listHttp);
+  //await monitorDNS(webAddresses);
+  res.json({ 'data': [{'nodes': nodes, 'edges': edges}], 'nodes:': nodes.length, 'edges': edges.length });
+});
+
+
+function random(min, max) { 
+	return Math.ceil(Math.random() * (max - min) + min);
+} 
 
 
 router.get('/listSslValid', async function (req, res) {

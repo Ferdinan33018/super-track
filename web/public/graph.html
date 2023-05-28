@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Status da Rede</title>
+    <script src="javascripts/build/sigma.min.js"></script>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        #sigma-container {
+            width: 100%;
+            height: 100%;
+            background-color: #F7F5F5
+        }
+    </style>
+</head>
+
+<body>
+    <h5>Status da rede</h5>
+    <p>
+
+    <!-- https://www.bsimard.com/2018/04/25/graph-viz-with-sigmajs.html -->    
+    <div id="sigma-container"></div>
+
+    <script>
+
+        async function load(){
+        // Initialise sigma:
+        var s = new sigma({
+            renderer: {
+                container: document.getElementById('sigma-container'),
+                type: 'canvas'
+            },
+            settings: {
+                minArrowSize: 10
+            }
+        });
+
+
+     try {
+        const response = await fetch('http://localhost:3000/graphTest');
+        const res = await response.json();
+
+        var graph = {
+            nodes: [],
+            edges: []
+        };
+
+        console.log(res.data[0]);
+
+        //graph.nodes = res.data[0].nodes;
+        //graph.edges = res.data[0].edges;
+
+       // console.log(res);
+
+        s.graph.read(res.data[0]);
+        // draw the graph
+        s.refresh();
+
+      } catch (err) {
+        console.error(err);
+      }
+
+        /** Generate a random graph:
+        var nbNode = 50;
+        var nbEdge = 100;
+        var graph = {
+            nodes: [],
+            edges: []
+        };
+        for (i = 0; i < nbNode; i++)
+            graph.nodes.push({
+                id: i,
+                label: 'Node ' + i,
+                x: Math.random(),
+                y: Math.random(),
+                size: 1,
+                color: '#EE651D'
+            });
+
+        for (i = 0; i < nbEdge; i++)
+            graph.edges.push({
+                id: i,
+                source: '' + (Math.random() * nbNode | 0),
+                target: '' + (Math.random() * nbNode | 0),
+                color: '#202020',
+                //type: 'curvedArrow'
+            }); **/
+
+
+        // load the graph
+        //s.graph.read(graph);
+        // draw the graph
+        //s.refresh();
+        // launch force-atlas for 5sec
+        //s.startForceAtlas2();
+        //window.setTimeout(function () { s.killForceAtlas2() }, 10000);
+    }
+
+    load();
+
+    </script>
+</body>
+
+</html>

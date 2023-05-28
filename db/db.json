@@ -1,0 +1,14 @@
+{
+    "posts": [
+      { "id": 1, "title": "json-server", "author": "typicode" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" },
+    "aplicacoes": [
+        { "id": 1, "label": "SGA-Prod", "type": "aplication",  "url": "typicode", "depends_on": [2, 3] },
+        { "id": 2, "label": "Moodle-Prod", "type": "aplication", "url": "typicode", "depends_on": [3] },
+        { "id": 3, "label": "Sinesp", "type": "aplication", "url": "typicode", "depends_on": [3] }
+    ]
+  }
