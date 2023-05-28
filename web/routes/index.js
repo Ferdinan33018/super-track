@@ -1,7 +1,10 @@
 var express = require('express');
-const { monitorDNS, extractDomain, monitorHttpRequest } = require('../utils/monitor.dns');
+const { monitorDNS, extractDomain, monitorHttpRequest, resolve } = require('../utils/monitor.dns');
 const { verificarCertificadosSslEmLote } = require('../utils/certificado.validation');
 const hosts = require('../utils/hosts');
+
+const geoip = require('geoip-lite');
+const { sendBatch2LogStash } = require('../utils/elastic');
 
 
 var router = express.Router();
@@ -21,6 +24,20 @@ router.get('/monitor', async function (req, res) {
   res.json({ message: 'monitoramento em andamento...' });
 });
 
+router.get('/teste', async function (req, res) {
+
+  let host = 'https://service.multisked.com.br';//[...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
+
+  const domain = extractDomain(host);
+  console.log(domain);
+
+  var ip = await resolve(domain);
+  const {ll, country } = geoip.lookup(ip);
+
+  res.json({ 'data':  ll });
+});
+
+
 
 router.get('/monitorHttp', async function (req, res) {
 
@@ -30,6 +47,26 @@ router.get('/monitorHttp', async function (req, res) {
   //await monitorDNS(webAddresses);
   res.json({ 'data': responseList, 'len:': responseList.length });
 });
+
+
+// http://localhost:3000/monitorHttp2Elastic
+router.get('/monitorHttp2Elastic', async function (req, res) {
+
+  let listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
+
+  setInterval(async() => {
+    const responseList = await monitorHttpRequest(listHttp);
+    const respBatch = await sendBatch2LogStash(responseList);
+
+    console.log('>>>', respBatch.length);
+  }, 60 * 1000);
+
+
+  //await monitorDNS(webAddresses);
+  res.json({ 'data': 'respBatch', 'len:': 'respBatch.length' });
+});
+
+
 
 
 router.get('/listSslValid', async function (req, res) {
@@ -58,11 +95,9 @@ router.get('/testeProcessoGpt2', async function (req, res) {
 });
 
 const webAddresses = [
-  'https://classind.mj.gov.br',
-  'https://apm.mj.gov.br',
-  'http://adm.justica.gov.br/',
-  'https://tstagir.mj.gov.br',
-  'https://dsvagir.mj.gov.br',
+  'https://service.multisked.com.br',
+  'https://eadsegen.mj.gov.br',
+  'https://compras.dados.gov.br'
 ]
 
 const dnsAddresses = [

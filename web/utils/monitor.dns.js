@@ -43,8 +43,11 @@ module.exports = {
 
     extractDomain: function (url) {
         return url2Domain(url);
-    }
+    },
 
+    resolve: function (url) {
+        return resolveIp(url);
+    }
 }
 
 
@@ -96,7 +99,7 @@ function monitorarRequisicaoAsync(url) {
 async function verificarRequisicaoEmBatch(urls) {
     try {
         const resultados = await Promise.all(
-            urls.map(async(url) => {
+            urls.map(async (url) => {
                 try {
                     //const resposta = await axios.get(url);
 
@@ -107,6 +110,7 @@ async function verificarRequisicaoEmBatch(urls) {
                     const tempoDeResposta = fim - inicio; // Calcula o tempo de resposta em milissegundos
 
                     //console.log(resposta);
+                    const ip = await resolveIp(url2Domain(url));
 
                     //console.log(resposta.status);
                     return {
@@ -115,26 +119,30 @@ async function verificarRequisicaoEmBatch(urls) {
                         //diasRestantes: certificado.daysRemaining,
                         //'host': resposta.host,
                         //'port': resposta.port,
-                        'addr': resposta.address,
+                        //'location':  geoip.lookup(ip)?.ll,
+                        'addr': ip,
                         'message': resposta.statusText,
                         'url': url,
-                        'status': resposta.statusCode,
+                        'status': resposta.status,
                         'tempoDeResposta': `${+Number(tempoDeResposta).toFixed(2)}`,
                     };
 
                 } catch (erro) {
                     //console.error(`Erro ao processar a URL ${url}: `, erro);
+                    //const errorCode = erro.message.match(/\d{3}/);
+
                     return {
                         //url: url,
                         //valido: certificado.valid,
                         //diasRestantes: certificado.daysRemaining,
                         //'host': resposta.host,
                         //'port': erro.port,
+                        //'location': null,
                         'addr': erro.address,
                         'message': erro.message,
                         'url': url,
                         'status': (erro.code === 'ENOTFOUND') ? '404' : '504',//erro.message.match(/\d{3}/)[0],
-                        'tempoDeResposta': +`9999`,
+                        'tempoDeResposta': 0,
                     };
                 }
             })
@@ -150,6 +158,16 @@ async function verificarRequisicaoEmBatch(urls) {
         console.error('Ocorreu um erro ao processar as URL:', erro.message);
         throw erro;
     }
+}
+
+
+
+function getTypeError(errorMsg){
+
+    if(errorMsg.includes('ENOTFOUND')){
+        
+    }
+    
 }
 
 
@@ -198,5 +216,18 @@ function checkDNS(addr, callback) {
 
 
 function url2Domain(addr) {
-    return (addr.includes('https://')) ? addr.split('//')[1].split('/')[0] : addr.split('/')[0];
+    return (addr.includes('http')) ? addr.split('//')[1].split('/')[0] : addr.split('/')[0];
+}
+
+
+async function resolveIp(url) {
+    return new Promise((resolve, reject) => {
+        dns.resolve(url, (err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res[0]);
+            }
+        });
+    });
 }
