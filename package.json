@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./web/app.js",
-    "dev": "nodemon ./web/app.js"
+    "dev": "nodemon ./web/app.js",
+    "db": "json-server -p 3001 -w db/db.json"
   },
   "dependencies": {
     "async": "^3.2.4",

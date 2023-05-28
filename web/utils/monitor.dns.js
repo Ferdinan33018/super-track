@@ -141,7 +141,7 @@ async function verificarRequisicaoEmBatch(urls) {
                         'addr': erro.address,
                         'message': erro.message,
                         'url': url,
-                        'status': (erro.code === 'ENOTFOUND') ? '404' : '504',//erro.message.match(/\d{3}/)[0],
+                        'status': (erro.code === 'ENOTFOUND') ? 404 : 504,//erro.message.match(/\d{3}/)[0],
                         'tempoDeResposta': 0,
                     };
                 }

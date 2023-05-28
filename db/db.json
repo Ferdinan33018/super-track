@@ -1,14 +1,3496 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" },
-    "aplicacoes": [
-        { "id": 1, "label": "SGA-Prod", "type": "aplication",  "url": "typicode", "depends_on": [2, 3] },
-        { "id": 2, "label": "Moodle-Prod", "type": "aplication", "url": "typicode", "depends_on": [3] },
-        { "id": 3, "label": "Sinesp", "type": "aplication", "url": "typicode", "depends_on": [3] }
-    ]
-  }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "aplicacoes": [
+    {
+      "id": 1,
+      "label": "SGA-Prod",
+      "type": "aplication",
+      "url": "typicode",
+      "depends_on": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Moodle-Prod",
+      "type": "aplication",
+      "url": "typicode",
+      "depends_on": [
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "label": "Sinesp",
+      "type": "aplication",
+      "url": "typicode",
+      "depends_on": [
+        3
+      ]
+    }
+  ],
+  "tracks": [
+    {
+      "message": "Request failed with status code 404",
+      "url": "https://service.multisked.com.br",
+      "status": "504",
+      "tempoDeResposta": 0,
+      "id": 3
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://eadsegen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "412.28",
+      "id": 4
+    },
+    {
+      "addr": "189.9.7.10",
+      "message": "OK",
+      "url": "https://compras.dados.gov.br",
+      "status": 200,
+      "tempoDeResposta": "155.01",
+      "id": 5
+    },
+    {
+      "message": "Request failed with status code 404",
+      "url": "https://service.multisked.com.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299810130,
+      "id": 6
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://eadsegen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "425.7",
+      "ts": 1685299810133,
+      "id": 7
+    },
+    {
+      "addr": "189.9.7.10",
+      "message": "OK",
+      "url": "https://compras.dados.gov.br",
+      "status": 200,
+      "tempoDeResposta": "172.8",
+      "ts": 1685299810135,
+      "id": 8
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND adm.justica.gov.br",
+      "url": "http://adm.justica.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929857,
+      "id": 9
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tstagir.mj.gov.br",
+      "url": "https://tstagir.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929862,
+      "id": 10
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvagir.mj.gov.br",
+      "url": "https://dsvagir.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929862,
+      "id": 11
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://alterasenha.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "13756.22",
+      "ts": 1685299929863,
+      "id": 12
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND ansible.mj.gov.br",
+      "url": "https://ansible.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929864,
+      "id": 13
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://api.sislegis.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "13734.15",
+      "ts": 1685299929865,
+      "id": 14
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND apm.mj.gov.br",
+      "url": "https://apm.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929866,
+      "id": 15
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND app-oracle.mj.gov.br",
+      "url": "http://app-ORACLE.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929867,
+      "id": 16
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/aquiles",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929868,
+      "id": 17
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/Arquivo/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929869,
+      "id": 18
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/ArquivoRO/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929870,
+      "id": 19
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND artifactory.mj.gov.br",
+      "url": "https://artifactory.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929871,
+      "id": 20
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND artifacts.mj.gov.br",
+      "url": "http://artifacts.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929872,
+      "id": 21
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://audit.sei.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929873,
+      "id": 22
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND awx.mj.gov.br",
+      "url": "https://awx.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929873,
+      "id": 23
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND awx-server.mj.gov.br",
+      "url": "http://awx-server.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929874,
+      "id": 24
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/bancodepermutas/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929874,
+      "id": 25
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/BancoConhecimentoCJ/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929875,
+      "id": 26
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "",
+      "url": "http://bibliotecadigital.susp.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14969.97",
+      "ts": 1685299929875,
+      "id": 27
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "",
+      "url": "https://bibliotecadigital.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "2328.85",
+      "ts": 1685299929876,
+      "id": 28
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://biblivre.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15840.38",
+      "ts": 1685299929876,
+      "id": 29
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND bigip-oracle.mj.gov.br",
+      "url": "http://bigip-ORACLE.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929877,
+      "id": 30
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND bigip-azure.mj.gov.br",
+      "url": "http://bigip-azure.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929877,
+      "id": 31
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND boundary-azure.mj.gov.br",
+      "url": "http://boundary-azure.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929878,
+      "id": 32
+    },
+    {
+      "message": "Request failed with status code 502",
+      "url": "http://campanhasic.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929879,
+      "id": 33
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://capacitact.senad.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16718.75",
+      "ts": 1685299929879,
+      "id": 34
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://carros.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15804.5",
+      "ts": 1685299929880,
+      "id": 35
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/CartorioAtualizacao/",
+      "status": 200,
+      "tempoDeResposta": "13771.76",
+      "ts": 1685299929882,
+      "id": 36
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/CartorioIntra/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929882,
+      "id": 37
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/certidoesDNN_AN",
+      "status": 200,
+      "tempoDeResposta": "15798.72",
+      "ts": 1685299929883,
+      "id": 38
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://certificados.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "916.29",
+      "ts": 1685299929883,
+      "id": 39
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://ciber.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15829.71",
+      "ts": 1685299929884,
+      "id": 40
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://ciccn.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "14006.03",
+      "ts": 1685299929885,
+      "id": 41
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://cidadesusp.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "13953.04",
+      "ts": 1685299929885,
+      "id": 42
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://cin.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "13947.39",
+      "ts": 1685299929886,
+      "id": 43
+    },
+    {
+      "message": "unable to verify the first certificate",
+      "url": "https://citsmart.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929887,
+      "id": 44
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND ckan.mj.gov.br",
+      "url": "http://ckan.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929887,
+      "id": 45
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ClassificacaoIndicativa/",
+      "status": 200,
+      "tempoDeResposta": "978.39",
+      "ts": 1685299929888,
+      "id": 46
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://classind.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "1045.61",
+      "ts": 1685299929888,
+      "id": 47
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND classind-backend.mj.gov.br",
+      "url": "https://classind-backend.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929889,
+      "id": 48
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND classindconsultapublica.mj.gov.br",
+      "url": "http://classindconsultapublica.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929889,
+      "id": 49
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://classindportal.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "1105.25",
+      "ts": 1685299929890,
+      "id": 50
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND clusters.mj.gov.br",
+      "url": "http://clusters.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929891,
+      "id": 51
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://cni.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "13932.31",
+      "ts": 1685299929893,
+      "id": 52
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://competencias.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "1168.07",
+      "ts": 1685299929895,
+      "id": 53
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://competencias.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "1172.61",
+      "ts": 1685299929895,
+      "id": 54
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://competencias-backend.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929896,
+      "id": 55
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://comprassusp.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "1190.48",
+      "ts": 1685299929896,
+      "id": 56
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://conatrap.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15920.56",
+      "ts": 1685299929897,
+      "id": 57
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ConsultaGEDOC/",
+      "status": 200,
+      "tempoDeResposta": "1089.11",
+      "ts": 1685299929899,
+      "id": 58
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ConsultaGedoc",
+      "status": 200,
+      "tempoDeResposta": "1089.77",
+      "ts": 1685299929899,
+      "id": 59
+    },
+    {
+      "message": "Request failed with status code 500",
+      "url": "http://portal.mj.gov.br/ConsultaEntidades/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929900,
+      "id": 60
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/consultaMJDoc",
+      "status": 200,
+      "tempoDeResposta": "15774.89",
+      "ts": 1685299929900,
+      "id": 61
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ConsultaProcessosSDE/",
+      "status": 200,
+      "tempoDeResposta": "1167.34",
+      "ts": 1685299929901,
+      "id": 62
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://consultasei.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16163.95",
+      "ts": 1685299929902,
+      "id": 63
+    },
+    {
+      "addr": "168.138.251.195",
+      "message": "OK",
+      "url": "https://www.consumidor.gov.br",
+      "status": 200,
+      "tempoDeResposta": "1269.79",
+      "ts": 1685299929902,
+      "id": 64
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND controlevisitante.mj.gov.br",
+      "url": "http://controlevisitante.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929903,
+      "id": 65
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/controleeventos/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929904,
+      "id": 66
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ControleProcon/",
+      "status": 200,
+      "tempoDeResposta": "1243.46",
+      "ts": 1685299929905,
+      "id": 67
+    },
+    {
+      "message": "Maximum number of redirects exceeded",
+      "url": "http://cooperacao-simplificada.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929906,
+      "id": 68
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://cortex.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14059.95",
+      "ts": 1685299929912,
+      "id": 69
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cortexcerc.mj.gov.br",
+      "url": "http://cortexcerc.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929912,
+      "id": 70
+    },
+    {
+      "addr": "189.9.7.70",
+      "message": "OK",
+      "url": "http://cquali.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "13976.95",
+      "ts": 1685299929913,
+      "id": 71
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://dados.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "14500.58",
+      "ts": 1685299929913,
+      "id": 72
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/DadosFuncionarios",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929914,
+      "id": 73
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/DadosFuncionariosAnonimo/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929914,
+      "id": 74
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND datanaturalizacao.mj.gov.br",
+      "url": "http://datanaturalizacao.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929914,
+      "id": 75
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://www.defesadoconsumidor.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929915,
+      "id": 76
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/DenunciaDPDE/",
+      "status": 200,
+      "tempoDeResposta": "1492.56",
+      "ts": 1685299929915,
+      "id": 77
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://desarma.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16512.91",
+      "ts": 1685299929916,
+      "id": 78
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND docker.mj.gov.br",
+      "url": "http://docker.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929916,
+      "id": 79
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://dockerimages.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929917,
+      "id": 80
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://www.justica.gov.br/documentacaoPortalMJ/",
+      "status": 200,
+      "tempoDeResposta": "13975.92",
+      "ts": 1685299929917,
+      "id": 81
+    },
+    {
+      "message": "Request failed with status code 404",
+      "url": "http://domibus.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929918,
+      "id": 82
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "",
+      "url": "http://dspace.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15923.64",
+      "ts": 1685299929918,
+      "id": 83
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://ead.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14274.41",
+      "ts": 1685299929918,
+      "id": 84
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://eadcompetencias.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14501.68",
+      "ts": 1685299929920,
+      "id": 85
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://ead.defesadoconsumidor.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "14129.11",
+      "ts": 1685299929921,
+      "id": 86
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND eadenapres.mj.gov.br",
+      "url": "https://eadenapres.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929922,
+      "id": 87
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://ead.espen.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929922,
+      "id": 88
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://ead.senasp.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15768.93",
+      "ts": 1685299929923,
+      "id": 89
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://eadespen.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "2842.34",
+      "ts": 1685299929923,
+      "id": 90
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://eadsegen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "2274.72",
+      "ts": 1685299929924,
+      "id": 91
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvmoodleenajusp.mj.gov.br",
+      "url": "https://dsvmoodleenajusp.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929924,
+      "id": 92
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://deest.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "16759.9",
+      "ts": 1685299929924,
+      "id": 93
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND ecor.mj.gov.br",
+      "url": "http://ecor.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929925,
+      "id": 94
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND ecor-backend.mj.gov.br",
+      "url": "http://ecor-backend.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929925,
+      "id": 95
+    },
+    {
+      "message": "Request failed with status code 502",
+      "url": "https://edemocracia.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929925,
+      "id": 96
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://educatio.senasp.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929926,
+      "id": 97
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND elasticsearch-oracle.mj.gov.br",
+      "url": "http://elasticsearch-ORACLE.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929926,
+      "id": 98
+    },
+    {
+      "addr": "200.198.212.87",
+      "message": "connect ETIMEDOUT 200.198.212.87:80",
+      "url": "http://enccla.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929926,
+      "id": 99
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND endcead.ip.tv",
+      "url": "https://endcead.ip.tv",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929927,
+      "id": 100
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND eouv.mj.gov.br",
+      "url": "http://eouv.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929928,
+      "id": 101
+    },
+    {
+      "addr": "189.9.0.80",
+      "message": "OK",
+      "url": "http://espf.espen.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14340.45",
+      "ts": 1685299929928,
+      "id": 102
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://estatistica.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "2590.58",
+      "ts": 1685299929928,
+      "id": 103
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND estrangeiroweb.mj.gov.br",
+      "url": "http://estrangeiroweb.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929929,
+      "id": 104
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND estrategia.mj.gov.br",
+      "url": "http://estrategia.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929929,
+      "id": 105
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/FichaNaturalizacao/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929929,
+      "id": 106
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND filestorage.mj.gov.br",
+      "url": "http://filestorage.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929930,
+      "id": 107
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://fleet.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14304.76",
+      "ts": 1685299929930,
+      "id": 108
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://fluxoleilaosenad.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "14646.35",
+      "ts": 1685299929930,
+      "id": 109
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND forcanacional.mj.gov.br",
+      "url": "https://forcanacional.mj.gov.br/#/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929931,
+      "id": 110
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://forcanacional-backend.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929931,
+      "id": 111
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/formsde/",
+      "status": 200,
+      "tempoDeResposta": "2563.76",
+      "ts": 1685299929932,
+      "id": 112
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://formularios.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16451.22",
+      "ts": 1685299929932,
+      "id": 113
+    },
+    {
+      "message": "certificate has expired",
+      "url": "http://formulariosdrci.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929932,
+      "id": 114
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND gcrim.mj.gov.br",
+      "url": "http://gcrim.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929933,
+      "id": 115
+    },
+    {
+      "message": "unable to verify the first certificate",
+      "url": "https://gestaoriscos.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929933,
+      "id": 116
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://gestaoriscos-backend.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14491.31",
+      "ts": 1685299929934,
+      "id": 117
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND gfunad.mj.gov.br",
+      "url": "https://gfunad.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929935,
+      "id": 118
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://git.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929935,
+      "id": 119
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://gitlab.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929935,
+      "id": 120
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND gitaks.mj.gov.br",
+      "url": "http://gitaks.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929935,
+      "id": 121
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND grafana.mj.gov.br",
+      "url": "http://grafana.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929936,
+      "id": 122
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND lce.mj.gov.br",
+      "url": "http://lce.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929936,
+      "id": 123
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND identidadenacional.mj.gov.br",
+      "url": "http://identidadenacional.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929936,
+      "id": 124
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://cin.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "14263.08",
+      "ts": 1685299929936,
+      "id": 125
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvcin.mj.gov.br",
+      "url": "http://dsvcin.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929937,
+      "id": 126
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND hmlcin.mj.gov.br",
+      "url": "http://hmlcin.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929937,
+      "id": 127
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND img.mj.gov.br",
+      "url": "http://img.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929937,
+      "id": 128
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://individuos.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929937,
+      "id": 129
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND infoggi.mj.gov.br",
+      "url": "https://infoggi.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929938,
+      "id": 130
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://infoggi.sinesp.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929938,
+      "id": 131
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND infopen.mj.gov.br",
+      "url": "http://infopen.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929938,
+      "id": 132
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "https://infopenpb.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929938,
+      "id": 133
+    },
+    {
+      "addr": "189.9.0.96",
+      "message": "connect ETIMEDOUT 189.9.0.96:80",
+      "url": "http://integracao.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929939,
+      "id": 134
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://integradores.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14484.08",
+      "ts": 1685299929940,
+      "id": 135
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://intranet.dfnsp.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "3192.94",
+      "ts": 1685299929940,
+      "id": 136
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "",
+      "url": "https://isupport.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15757.81",
+      "ts": 1685299929940,
+      "id": 137
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://jenkins.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929940,
+      "id": 138
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND jmeter.mj.gov.br",
+      "url": "https://jmeter.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929941,
+      "id": 139
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://sso.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "3384.21",
+      "ts": 1685299929941,
+      "id": 140
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://keycloak.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14291.68",
+      "ts": 1685299929941,
+      "id": 141
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND kibana.mj.gov.br",
+      "url": "https://kibana.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929941,
+      "id": 142
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND kibana-oracle.mj.gov.br",
+      "url": "http://kibana-oracle.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929942,
+      "id": 143
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://legadoeadsegen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15905.88",
+      "ts": 1685299929942,
+      "id": 144
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://leiloes.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "3776.27",
+      "ts": 1685299929942,
+      "id": 145
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND log.mj.gov.br",
+      "url": "http://log.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929943,
+      "id": 146
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://mcai.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16537.38",
+      "ts": 1685299929943,
+      "id": 147
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND mediawiki.mj.gov.br",
+      "url": "http://mediawiki.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929943,
+      "id": 148
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND megan.infoseg.gov.br",
+      "url": "http://megan.infoseg.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929944,
+      "id": 149
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND messagingsisexp.mj.gov.br",
+      "url": "http://messagingsisexp.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929944,
+      "id": 150
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://mfa.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14303.62",
+      "ts": 1685299929944,
+      "id": 151
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://migrante.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "3658.2",
+      "ts": 1685299929945,
+      "id": 152
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://migrante-backend.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929945,
+      "id": 153
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://mim.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "16094.12",
+      "ts": 1685299929945,
+      "id": 154
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND mjajuda.mj.gov.br",
+      "url": "http://mjajuda.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929946,
+      "id": 155
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND monitor.mj.gov.br",
+      "url": "http://monitor.mj.gov.br/monitor/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929946,
+      "id": 156
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/MPsicorde/",
+      "status": 200,
+      "tempoDeResposta": "3740.83",
+      "ts": 1685299929946,
+      "id": 157
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND nessus.mj.gov.br",
+      "url": "http://nessus.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929946,
+      "id": 158
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sessusmonitor.mj.gov.br",
+      "url": "http://sessusmonitor.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929947,
+      "id": 159
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND nexus.mj.gov.br",
+      "url": "http://nexus.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929947,
+      "id": 160
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://novo.siapen-backend.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929947,
+      "id": 161
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://novo.formularios.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14477.23",
+      "ts": 1685299929948,
+      "id": 162
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND novo.ciccn.mj.gov.br",
+      "url": "http://novo.ciccn.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929948,
+      "id": 163
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://novo.estrategia.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "3916.34",
+      "ts": 1685299929948,
+      "id": 164
+    },
+    {
+      "message": "self signed certificate",
+      "url": "https://novo.formularios.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929949,
+      "id": 165
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND novo.gfunad.mj.gov.br",
+      "url": "https://novo.gfunad.mj.gov.br/gfunad-web",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929949,
+      "id": 166
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://novo.jenkins.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929949,
+      "id": 167
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://novo.siapen.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929950,
+      "id": 168
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://novoformularios.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14470.85",
+      "ts": 1685299929950,
+      "id": 169
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.depen.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15821.09",
+      "ts": 1685299929950,
+      "id": 170
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14937.96",
+      "ts": 1685299929950,
+      "id": 171
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ac.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14606.92",
+      "ts": 1685299929951,
+      "id": 172
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.al.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14843.87",
+      "ts": 1685299929952,
+      "id": 173
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ap.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14617.69",
+      "ts": 1685299929952,
+      "id": 174
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ba.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15880.42",
+      "ts": 1685299929952,
+      "id": 175
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.bombeiros.mg.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14749.9",
+      "ts": 1685299929952,
+      "id": 176
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.bombeiros.rr.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14934.5",
+      "ts": 1685299929953,
+      "id": 177
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.cbm.ro.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14933.82",
+      "ts": 1685299929953,
+      "id": 178
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cronos.cint.pa.gov.br",
+      "url": "https://cronos.cint.pa.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929953,
+      "id": 179
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.cbm.rs.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14764.49",
+      "ts": 1685299929955,
+      "id": 180
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ce.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15022.17",
+      "ts": 1685299929955,
+      "id": 181
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.diep.pr.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14748.07",
+      "ts": 1685299929955,
+      "id": 182
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.go.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14809.1",
+      "ts": 1685299929955,
+      "id": 183
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ma.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14731.18",
+      "ts": 1685299929956,
+      "id": 184
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.mg.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15020.4",
+      "ts": 1685299929956,
+      "id": 185
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pa.depen.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15015.32",
+      "ts": 1685299929956,
+      "id": 186
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ms.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14805.94",
+      "ts": 1685299929957,
+      "id": 187
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.mt.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15018.42",
+      "ts": 1685299929957,
+      "id": 188
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.pc.ac.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15098.83",
+      "ts": 1685299929957,
+      "id": 189
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pc.ms.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14914.46",
+      "ts": 1685299929958,
+      "id": 190
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://cronos.pc.rr.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929958,
+      "id": 191
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.pc.sc.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14984.85",
+      "ts": 1685299929958,
+      "id": 192
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pe.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14908.54",
+      "ts": 1685299929958,
+      "id": 193
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pi.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14894.32",
+      "ts": 1685299929959,
+      "id": 194
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pm.ac.gov.br",
+      "status": 200,
+      "tempoDeResposta": "14935.87",
+      "ts": 1685299929959,
+      "id": 195
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cronos-pm-ap",
+      "url": "https://cronos-pm-ap",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929959,
+      "id": 196
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pm.al.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15041.25",
+      "ts": 1685299929960,
+      "id": 197
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pm.am.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15021.75",
+      "ts": 1685299929960,
+      "id": 198
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.pm.ap.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16112.25",
+      "ts": 1685299929960,
+      "id": 199
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.pm.ms.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15196.21",
+      "ts": 1685299929960,
+      "id": 200
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.pm.rr.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15445.51",
+      "ts": 1685299929961,
+      "id": 201
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://cronos.rbs.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929962,
+      "id": 202
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pm.to.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15190.77",
+      "ts": 1685299929964,
+      "id": 203
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pr.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15095.41",
+      "ts": 1685299929964,
+      "id": 204
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.rn.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15282.87",
+      "ts": 1685299929965,
+      "id": 205
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.ro.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15032.42",
+      "ts": 1685299929966,
+      "id": 206
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.rr.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15443.07",
+      "ts": 1685299929966,
+      "id": 207
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cronos.seguranca.mg.gov.br",
+      "url": "https://cronos.seguranca.mg.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929967,
+      "id": 208
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.rs.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15102.8",
+      "ts": 1685299929967,
+      "id": 209
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.seguranca.ac.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15340.06",
+      "ts": 1685299929967,
+      "id": 210
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.sejusp.ap.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15338.22",
+      "ts": 1685299929968,
+      "id": 211
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.sejusp.ms.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15251.31",
+      "ts": 1685299929968,
+      "id": 212
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.siac.pa.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15608.97",
+      "ts": 1685299929968,
+      "id": 213
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.sp.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15628.44",
+      "ts": 1685299929969,
+      "id": 214
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.ssp.rs.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15315.17",
+      "ts": 1685299929971,
+      "id": 215
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.ssp.sc.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15434.12",
+      "ts": 1685299929972,
+      "id": 216
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.ssp.to.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15136.15",
+      "ts": 1685299929972,
+      "id": 217
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.si.ssp.df.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15625.92",
+      "ts": 1685299929972,
+      "id": 218
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cronos.suint.seguranca.mg.gov.br",
+      "url": "https://cronos.suint.seguranca.mg.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929973,
+      "id": 219
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://drive.cronos.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15277.15",
+      "ts": 1685299929973,
+      "id": 220
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://drive.dep.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15576.5",
+      "ts": 1685299929973,
+      "id": 221
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND cronos.depen.mj.gov.br",
+      "url": "http://cronos.depen.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929974,
+      "id": 222
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://drive.diop.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15604.05",
+      "ts": 1685299929974,
+      "id": 223
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.am.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15574.97",
+      "ts": 1685299929975,
+      "id": 224
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.pcdf.df.gov.br/login",
+      "status": 200,
+      "tempoDeResposta": "9773.91",
+      "ts": 1685299929975,
+      "id": 225
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.rj.depen.gov.br/login",
+      "status": 200,
+      "tempoDeResposta": "9786.59",
+      "ts": 1685299929976,
+      "id": 226
+    },
+    {
+      "message": "unable to verify the first certificate",
+      "url": "https://ssp.rs.cronos.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929976,
+      "id": 227
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://cronos.se.depen.gov.br/login",
+      "status": 200,
+      "tempoDeResposta": "9665.16",
+      "ts": 1685299929976,
+      "id": 228
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://cronos.sisp.ssp.to.gov.br/login",
+      "status": 200,
+      "tempoDeResposta": "10258.61",
+      "ts": 1685299929977,
+      "id": 229
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND old.senasp.gov.br",
+      "url": "http://old.senasp.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929977,
+      "id": 230
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://orcrim.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15329.35",
+      "ts": 1685299929978,
+      "id": 231
+    },
+    {
+      "message": "Request failed with status code 502",
+      "url": "http://dsv.orcrim.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929978,
+      "id": 232
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvorcrim.mj.gov.br",
+      "url": "http://dsvorcrim.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929979,
+      "id": 233
+    },
+    {
+      "addr": "189.9.0.123",
+      "message": "OK",
+      "url": "http://hmlorcrim.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15709.92",
+      "ts": 1685299929979,
+      "id": 234
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND hmlociorcrim.mj.gov.br",
+      "url": "http://hmlociorcrim.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929979,
+      "id": 235
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://tstorcrim.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "16006.14",
+      "ts": 1685299929979,
+      "id": 236
+    },
+    {
+      "message": "Request failed with status code 500",
+      "url": "http://portal.mj.gov.br/Oscip/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929980,
+      "id": 237
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://oscip.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15422.51",
+      "ts": 1685299929981,
+      "id": 238
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND ouvidoriageral.mj.gov.br",
+      "url": "http://ouvidoriageral.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929981,
+      "id": 239
+    },
+    {
+      "message": "Request failed with status code 500",
+      "url": "https://palasnet.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929982,
+      "id": 240
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://papercut.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15358.81",
+      "ts": 1685299929982,
+      "id": 241
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://participacao.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16378.16",
+      "ts": 1685299929982,
+      "id": 242
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://pensando.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "10487.19",
+      "ts": 1685299929982,
+      "id": 243
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://pentahosindec.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929983,
+      "id": 244
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND pgd.mj.gov.br",
+      "url": "https://pgd.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929983,
+      "id": 245
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://dsvpgdanpd.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15783.9",
+      "ts": 1685299929983,
+      "id": 246
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/PiratariaIntranet",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929984,
+      "id": 247
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://planejamentodetic.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "9955.62",
+      "ts": 1685299929984,
+      "id": 248
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND hml.gestaopdtic.mj.gov.br",
+      "url": "https://hml.gestaopdtic.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929984,
+      "id": 249
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND pnesp.mj.gov.br",
+      "url": "https://pnesp.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929985,
+      "id": 250
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://pnesp.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15842.83",
+      "ts": 1685299929985,
+      "id": 251
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://portaldeimigracao.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16077.06",
+      "ts": 1685299929985,
+      "id": 252
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://portal.ead.senasp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15428.95",
+      "ts": 1685299929985,
+      "id": 253
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://portaldeimigracao.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "16257.32",
+      "ts": 1685299929986,
+      "id": 254
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND prddesarma.mj.gov.br",
+      "url": "http://prddesarma.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929986,
+      "id": 255
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND prdoscip.mj.gov.br",
+      "url": "http://prdoscip.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929986,
+      "id": 256
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND prdsiapen.mj.gov.br",
+      "url": "http://prdsiapen.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929987,
+      "id": 257
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND prdsiapenbackend.mj.gov.br",
+      "url": "http://prdsiapenbackend.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929987,
+      "id": 258
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND prdsimap.mj.gov.br",
+      "url": "http://prdsimap.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929987,
+      "id": 259
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://presosestrangeiros.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15845.63",
+      "ts": 1685299929988,
+      "id": 260
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/ProcAnistia/",
+      "status": 200,
+      "tempoDeResposta": "15577.07",
+      "ts": 1685299929988,
+      "id": 261
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://proconsumidor.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "10294.24",
+      "ts": 1685299929988,
+      "id": 262
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "https://proconsumidor-be.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929988,
+      "id": 263
+    },
+    {
+      "message": "read ECONNRESET",
+      "url": "https://desenvolvimento-proconsumidor.mj.gov.br ",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929989,
+      "id": 264
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://homol-proconsumidor.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "10382.72",
+      "ts": 1685299929989,
+      "id": 265
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://treinamento-proconsumidor.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "10380.96",
+      "ts": 1685299929989,
+      "id": 266
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://teste-proconsumidor.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "10416.84",
+      "ts": 1685299929989,
+      "id": 267
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND producao.mj.gov.br",
+      "url": "http://producao.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929990,
+      "id": 268
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND projetoscgsis.mj.gov.br",
+      "url": "http://projetoscgsis.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929990,
+      "id": 269
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://projetoscgti.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15584.77",
+      "ts": 1685299929990,
+      "id": 270
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/PromensMensagens/",
+      "status": 200,
+      "tempoDeResposta": "10553.9",
+      "ts": 1685299929990,
+      "id": 271
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/ProtejoLocal",
+      "status": 200,
+      "tempoDeResposta": "16235.95",
+      "ts": 1685299929992,
+      "id": 272
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/ProtejoNacional",
+      "status": 200,
+      "tempoDeResposta": "16146.09",
+      "ts": 1685299929992,
+      "id": 273
+    },
+    {
+      "message": "Request failed with status code 404",
+      "url": "https://www.justica.gov.br/pushDrci",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929993,
+      "id": 274
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND racktables.mj.gov.br",
+      "url": "https://racktables.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929993,
+      "id": 275
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://rbepdepen.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "17048.03",
+      "ts": 1685299929993,
+      "id": 276
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND recall.mj.gov.br",
+      "url": "https://recall.mj.gov.br/  ",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929993,
+      "id": 277
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/recall/",
+      "status": 200,
+      "tempoDeResposta": "15467.7",
+      "ts": 1685299929994,
+      "id": 278
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://registry.gitlab.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "10493.54",
+      "ts": 1685299929994,
+      "id": 279
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://repo.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929994,
+      "id": 280
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND repositorio.mj.gov.br",
+      "url": "http://repositorio.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929994,
+      "id": 281
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND repository.mj.gov.br",
+      "url": "http://repository.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929995,
+      "id": 282
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/RequisicaoAudienciaSDE/",
+      "status": 200,
+      "tempoDeResposta": "10561.8",
+      "ts": 1685299929996,
+      "id": 283
+    },
+    {
+      "message": "Request failed with status code 404",
+      "url": "https://revistasusp.mj.gov.br/susp/index.php/revistasusp",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929997,
+      "id": 284
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://rh.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929997,
+      "id": 285
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://rh.pfbra.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929997,
+      "id": 286
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://rh.pfcat.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929998,
+      "id": 287
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND rh.pfcg.depen.gov.br",
+      "url": "http://rh.pfcg.depen.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929998,
+      "id": 288
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND rh.pfmos.depen.gov.br",
+      "url": "http://rh.pfmos.depen.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299929999,
+      "id": 289
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://rh.pfpv.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299929999,
+      "id": 290
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "https://rhinfopenpb.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930000,
+      "id": 291
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "http://rhsiapenac.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930001,
+      "id": 292
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "http://rhsiapenba.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930002,
+      "id": 293
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://rhsiapenspf.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930003,
+      "id": 294
+    },
+    {
+      "message": "Request failed with status code 503",
+      "url": "http://saie.sinesp.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930003,
+      "id": 295
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://sati.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15701.89",
+      "ts": 1685299930003,
+      "id": 296
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://savi.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15661.6",
+      "ts": 1685299930004,
+      "id": 297
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "http://savi-backend.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930004,
+      "id": 298
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://seg.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15569.98",
+      "ts": 1685299930004,
+      "id": 299
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://sei.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15899.01",
+      "ts": 1685299930004,
+      "id": 300
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND selenium.mj.gov.br",
+      "url": "http://selenium.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930005,
+      "id": 301
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://selo.depen.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "11557.51",
+      "ts": 1685299930005,
+      "id": 302
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://selo.depen.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15665.46",
+      "ts": 1685299930005,
+      "id": 303
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/seminarioweb",
+      "status": 200,
+      "tempoDeResposta": "15731.28",
+      "ts": 1685299930005,
+      "id": 304
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND semob.mj.gov.br",
+      "url": "http://semob.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930006,
+      "id": 305
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND servicos.mj.gov.br",
+      "url": "http://servicos.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930006,
+      "id": 306
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://sgaeadsegen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "11359.55",
+      "ts": 1685299930006,
+      "id": 307
+    },
+    {
+      "message": "read ECONNRESET",
+      "url": "https://dsvsgaeadsegen.mj.gov.br/login",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930006,
+      "id": 308
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://hmlsgaeadsegen.mj.gov.br/login",
+      "status": 200,
+      "tempoDeResposta": "11421.13",
+      "ts": 1685299930007,
+      "id": 309
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tstsgaeadsegen.mj.gov.br",
+      "url": "http://tstsgaeadsegen.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930007,
+      "id": 310
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sian-gateway.mj.gov.br",
+      "url": "https://sian-gateway.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930007,
+      "id": 311
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sian-kafka.mj.gov.br",
+      "url": "https://sian-kafka.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930008,
+      "id": 312
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sian.mj.gov.br",
+      "url": "https://sian.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930008,
+      "id": 313
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sian-zookeeper.mj.gov.br",
+      "url": "https://sian-zookeeper.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930008,
+      "id": 314
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://siapen.depen.gov.br/spf/",
+      "status": 200,
+      "tempoDeResposta": "11716.89",
+      "ts": 1685299930008,
+      "id": 315
+    },
+    {
+      "message": "certificate has expired",
+      "url": "http://siapen.central.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930009,
+      "id": 316
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://siapen.pfbra.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930009,
+      "id": 317
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://siapen.pfcat.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930009,
+      "id": 318
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND siapen.pfcg.depen.gov.br",
+      "url": "http://siapen.pfcg.depen.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930010,
+      "id": 319
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND siapen.pfmos.depen.gov.br",
+      "url": "http://siapen.pfmos.depen.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930010,
+      "id": 320
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://siapen.pfpv.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930010,
+      "id": 321
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "http://siapenac.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930011,
+      "id": 322
+    },
+    {
+      "message": "Request failed with status code 401",
+      "url": "http://siapenba.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930011,
+      "id": 323
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND siapenbackend.mj.gov.br",
+      "url": "http://siapenbackend.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930011,
+      "id": 324
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvsiapen.mj.gov.br",
+      "url": "https://dsvsiapen.mj.gov.br/login",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930011,
+      "id": 325
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND hmlsiapen.mj.gov.br",
+      "url": "https://hmlsiapen.mj.gov.br/login",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930012,
+      "id": 326
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://siapenspf.depen.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930012,
+      "id": 327
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tstsiapen.mj.gov.br",
+      "url": "https://tstsiapen.mj.gov.br/login",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930012,
+      "id": 328
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://sicau.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "16115.97",
+      "ts": 1685299930013,
+      "id": 329
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/SicauCGTI/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930014,
+      "id": 330
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/sicauweb",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930014,
+      "id": 331
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND side.mj.gov.br",
+      "url": "http://side.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930014,
+      "id": 332
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://simap.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "12067.17",
+      "ts": 1685299930015,
+      "id": 333
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://simap-backend.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930015,
+      "id": 334
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://simon.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930015,
+      "id": 335
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/SimPazLocal",
+      "status": 200,
+      "tempoDeResposta": "16253.79",
+      "ts": 1685299930015,
+      "id": 336
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/SimPazNacional",
+      "status": 200,
+      "tempoDeResposta": "16618.53",
+      "ts": 1685299930016,
+      "id": 337
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://sinca.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930016,
+      "id": 338
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://sindecnacional.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15792.28",
+      "ts": 1685299930016,
+      "id": 339
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://sindna-socket.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "12328.06",
+      "ts": 1685299930017,
+      "id": 340
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://agente.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15667.42",
+      "ts": 1685299930017,
+      "id": 341
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://busca.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15550.1",
+      "ts": 1685299930017,
+      "id": 342
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://cidadao2.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15549.37",
+      "ts": 1685299930017,
+      "id": 343
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://geo.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15526.13",
+      "ts": 1685299930018,
+      "id": 344
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://oauth2.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15548.93",
+      "ts": 1685299930018,
+      "id": 345
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "https://temporeal.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "12216.85",
+      "ts": 1685299930020,
+      "id": 346
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://vde.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15839.41",
+      "ts": 1685299930023,
+      "id": 347
+    },
+    {
+      "message": "Request failed with status code 404",
+      "url": "http://sinesp-bigdata.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930024,
+      "id": 348
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://sinespdrive.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15732",
+      "ts": 1685299930024,
+      "id": 349
+    },
+    {
+      "message": "unable to verify the first certificate",
+      "url": "https://sinespjc.sinesp.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930024,
+      "id": 350
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sinespjc.mj.gov.br",
+      "url": "https://sinespjc.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930024,
+      "id": 351
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://sinespsaie.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15972.36",
+      "ts": 1685299930026,
+      "id": 352
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://sipacseg.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16533.01",
+      "ts": 1685299930026,
+      "id": 353
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/Sipia/",
+      "status": 200,
+      "tempoDeResposta": "12524.29",
+      "ts": 1685299930026,
+      "id": 354
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/siscertidoes",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930027,
+      "id": 355
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "http://sisconare.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "16550.06",
+      "ts": 1685299930027,
+      "id": 356
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://individuos.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "12575.06",
+      "ts": 1685299930027,
+      "id": 357
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://sisdepen.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15659.42",
+      "ts": 1685299930027,
+      "id": 358
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvsisdepen.mj.gov.br",
+      "url": "https://dsvsisdepen.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930028,
+      "id": 359
+    },
+    {
+      "addr": "193.123.107.142",
+      "message": "OK",
+      "url": "https://hmlsisdepen.mj.gov.br/",
+      "status": 200,
+      "tempoDeResposta": "15963.18",
+      "ts": 1685299930028,
+      "id": 360
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tstsisdepen.mj.gov.br",
+      "url": "https://tstsisdepen.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930028,
+      "id": 361
+    },
+    {
+      "message": "Request failed with status code 500",
+      "url": "http://portal.mj.gov.br/SISEDH/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930029,
+      "id": 362
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://sisexp.mj.gov.br ",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930029,
+      "id": 363
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sisexp-messaging.mj.gov.br",
+      "url": "https://sisexp-messaging.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930029,
+      "id": 364
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://sisexp.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930029,
+      "id": 365
+    },
+    {
+      "message": "certificate has expired",
+      "url": "https://sisexp-backend.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930030,
+      "id": 366
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/SisForCurso",
+      "status": 200,
+      "tempoDeResposta": "15855.4",
+      "ts": 1685299930030,
+      "id": 367
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "https://portal.mj.gov.br/SisForGestao",
+      "status": 200,
+      "tempoDeResposta": "15947.48",
+      "ts": 1685299930030,
+      "id": 368
+    },
+    {
+      "message": "Request failed with status code 500",
+      "url": "https://portal.mj.gov.br/SisForRequerente/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930030,
+      "id": 369
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://sislegis.console.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930031,
+      "id": 370
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "http://sislegis.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15854.7",
+      "ts": 1685299930031,
+      "id": 371
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://sisnorma.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930031,
+      "id": 372
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/sisrh",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930031,
+      "id": 373
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/sisrh2009/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930032,
+      "id": 374
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sistemas.mj.gov.br",
+      "url": "http://sistemas.mj.gov.br/Transparencia/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930032,
+      "id": 375
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND novo.sonarqube.mj.gov.br",
+      "url": "http://novo.sonarqube.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930032,
+      "id": 376
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND sonarqube.mj.gov.br",
+      "url": "http://sonarqube.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930033,
+      "id": 377
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://sso.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "12809.05",
+      "ts": 1685299930033,
+      "id": 378
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND staging.sso.mj.gov.br",
+      "url": "http://staging.sso.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930033,
+      "id": 379
+    },
+    {
+      "message": "certificate has expired",
+      "url": "http://staging-config-server.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930034,
+      "id": 380
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND staging-eureka-server.mj.gov.br",
+      "url": "http://staging-eureka-server.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930034,
+      "id": 381
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND stagingindexacaoelastic.mj.gov.b...",
+      "url": "http://stagingindexacaoelastic.mj.gov.b...",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930034,
+      "id": 382
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND stagingmonitoramento.mj.gov.br",
+      "url": "http://stagingmonitoramento.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930034,
+      "id": 383
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://storage.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15588.41",
+      "ts": 1685299930035,
+      "id": 384
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND storagemj.mj.gov.br",
+      "url": "http://storagemj.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930035,
+      "id": 385
+    },
+    {
+      "addr": "189.9.0.79",
+      "message": "OK",
+      "url": "http://studio-ead.sinesp.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15777.02",
+      "ts": 1685299930035,
+      "id": 386
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND anpd-super.mj.gov.br",
+      "url": "https://anpd-super.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930035,
+      "id": 387
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND suporte.mim.mj.gov.br",
+      "url": "http://suporte.mim.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930038,
+      "id": 388
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND swagger-editor.mj.gov.br",
+      "url": "http://swagger-editor.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930038,
+      "id": 389
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://teamdev.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930038,
+      "id": 390
+    },
+    {
+      "message": "socket hang up",
+      "url": "https://teampass.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930038,
+      "id": 391
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tenablesc.mj.gov.br",
+      "url": "http://tenablesc.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930039,
+      "id": 392
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND testlink.mj.gov.br",
+      "url": "http://testlink.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930039,
+      "id": 393
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://ticketsuportesindec.mj.gov.br",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930039,
+      "id": 394
+    },
+    {
+      "message": "unable to verify the first certificate",
+      "url": "https://transparencia.mj.gov.br/ ",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930040,
+      "id": 395
+    },
+    {
+      "addr": "189.9.0.119",
+      "message": "OK",
+      "url": "http://portal.mj.gov.br/TransparenciaWeb/",
+      "status": 200,
+      "tempoDeResposta": "13228.23",
+      "ts": 1685299930040,
+      "id": 396
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND unicgsis.mj.gov.br",
+      "url": "http://unicgsis.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930040,
+      "id": 397
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND vault-oracle.mj.gov.br",
+      "url": "http://vault-ORACLE.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930041,
+      "id": 398
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND vault-azure.mj.gov.br",
+      "url": "http://vault-azure.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930041,
+      "id": 399
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND vault.mj.gov.br",
+      "url": "http://vault.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930041,
+      "id": 400
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://vpn.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15608.15",
+      "ts": 1685299930043,
+      "id": 401
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND wiki.dtic.seguranca.gov.br",
+      "url": "http://wiki.dtic.seguranca.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930043,
+      "id": 402
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND wikisuportesindec.mj.gov.br",
+      "url": "http://wikisuportesindec.mj.gov.br/",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930043,
+      "id": 403
+    },
+    {
+      "addr": "189.9.0.81",
+      "message": "OK",
+      "url": "https://wikidint.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "15754.57",
+      "ts": 1685299930044,
+      "id": 404
+    },
+    {
+      "message": "socket hang up",
+      "url": "http://wikiseg.mj.gov.br/",
+      "status": 504,
+      "tempoDeResposta": 0,
+      "ts": 1685299930044,
+      "id": 405
+    },
+    {
+      "addr": "20.195.196.63",
+      "message": "OK",
+      "url": "https://cnpd.mj.gov.br",
+      "status": 200,
+      "tempoDeResposta": "13544.97",
+      "ts": 1685299930045,
+      "id": 406
+    },
+    {
+      "message": "queryA ENOTFOUND hmlcnpd.mj.gov.br ",
+      "url": "https://hmlcnpd.mj.gov.br ",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930045,
+      "id": 407
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND tstcnpd.mj.gov.br",
+      "url": "https://tstcnpd.mj.gov.br ",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930046,
+      "id": 408
+    },
+    {
+      "message": "getaddrinfo ENOTFOUND dsvcnpd.mj.gov.br",
+      "url": "https://dsvcnpd.mj.gov.br",
+      "status": 404,
+      "tempoDeResposta": 0,
+      "ts": 1685299930046,
+      "id": 409
+    }
+  ]
+}
