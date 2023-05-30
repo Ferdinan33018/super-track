@@ -45,7 +45,7 @@
             controller: {
                 loadData: async function () {
                     try {
-                        const response = await fetch('/monitorHttp/');
+                        const response = await fetch('/getTrackScan');
                         const res = await response.json();
                         //console.log(res);
                         return res.data;

@@ -1,4 +1,6 @@
 var express = require('express');
+var path = require('path');
+
 
 const axios = require('axios');
 
@@ -8,6 +10,7 @@ const hosts = require('../utils/hosts');
 
 const geoip = require('geoip-lite');
 const { sendBatch2LogStash } = require('../utils/elastic');
+const { func } = require('prop-types');
 
 
 
@@ -42,29 +45,49 @@ router.get('/teste', async function (req, res) {
 });
 
 
+
 /**
  * Executar o banco json antes: npm run db
  * http://localhost:3000/monitorHttp
  */
-router.get('/monitorHttp', async function (req, res) {
+router.get('/getTrackScan', async function (req, res) { 
 
-  let listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
+  try {
+    const response = await axios.get('http://localhost:3001/tracks');
+    const responseList = Array.from(response.data);
 
-  const responseList = await monitorHttpRequest(listHttp);
 
-  //console.log(responseList)
-  fetchPost('http://localhost:3001/tracks', responseList).then((s) => {
-    console.log(s);
-  })
+    console.log(responseList[0]);
+
+    res.json({ 'data': responseList, 'len:': responseList.length });
+
+  } catch (err) {
+    console.error(err.message);
+    res.json({ 'data': [], 'len:': [].length });
+  }
 
   //await monitorDNS(webAddresses);
-  res.json({ 'data': responseList, 'len:': responseList.length });
+  
+});
+
+
+
+/**
+ * Executar o banco json antes: npm run db
+ * http://localhost:3000/executeBatch
+ */
+router.get('/executeBatch', async function (req, res) {
+
+  //executeHttpMonitor();
+  //this.executeBatchValidSSL(); 
+  //await monitorDNS(webAddresses);
+  res.json({ 'message': 'Batch em processamento', 'len:': 1 });
 });
 
 
 async function fetchPost(url, arrObj) {
   try {
-    console.log('>>> ', arrObj);
+    //console.log('>>> ', arrObj);
 
     const resultados = await Promise.all(
       arrObj.map(async (obj) => {
@@ -103,6 +126,17 @@ async function fetchPost(url, arrObj) {
 }
 
 
+
+router.get('/a', function(req, res, next) {
+  console.log('dir: ', __dirname); 
+  //res.sendFile('admin/index.html', { title: 'Express' });
+  //res.sendFile(path.join(__dirname+'/admin/index.html'));
+  res.sendFile(path.join(__dirname+'/admin/index.html'));
+  //__dirname : It will resolve to your project folder.
+});
+
+
+
 // http://localhost:3000/monitorHttp2Elastic
 router.get('/monitorHttp2Elastic', async function (req, res) {
 
@@ -112,7 +146,7 @@ router.get('/monitorHttp2Elastic', async function (req, res) {
     const responseList = await monitorHttpRequest(listHttp);
     const respBatch = await sendBatch2LogStash(responseList);
 
-    console.log('>>>', respBatch.length);
+    console.log('>>>', respBatch.length); 
   }, 60 * 1000);
 
 
@@ -121,6 +155,8 @@ router.get('/monitorHttp2Elastic', async function (req, res) {
 });
 
 
+
+//carga de dad
 router.get('/graphLogTrack', async function (req, res) {
 
   //const listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
@@ -128,7 +164,7 @@ router.get('/graphLogTrack', async function (req, res) {
   const dataset = await axios.get('http://localhost:3001/tracks');
   const arrData = Array.from(dataset.data);
 
-  console.log(arrData.length);
+  console.log(arrData[0]);
 
   const hostsn = arrData.map((m, i) => ({
     'id': i,
@@ -136,16 +172,18 @@ router.get('/graphLogTrack', async function (req, res) {
     'status': m.status,
     'rt': m.tempoDeResposta,
     'url': m.url,
-    'depends_on': [i, random(i, arrData.length - 1)]
+    'depends_on': [i, random(i, arrData.length - 1)] 
   }))
+
+  //console.log(arrData[0]);
 
   const nodes = [...hostsn].map((m, i) => ({
     'id': i,
     'label': m.label,
     'color': getNodeColor(m.status),
-    'x': random(0, 100),
+    'x': random(0, 180),
     'y': random(0, 100),
-    'size': hostsn.map(m => (m.depends_on)).flatMap(f => (f)).filter(x => (x === m.id)).length
+    'size': 1.5 + hostsn.map(m => (m.depends_on)).flatMap(f => (f)).filter(x => (x === m.id)).length
   }))
 
   const edges = hostsn.flatMap((m, y) => (
@@ -153,9 +191,11 @@ router.get('/graphLogTrack', async function (req, res) {
       id: random(0, 99999999),
       source: nodes[m.id].id,
       target: nodes[t].id,
-      //label: 'rt: ' + m.rt,
+      label:  (m.status === 200 || m.status === 404) ? '' : '' + m.status,
+      //size: 3,
+      type: 'curve',
       count: m.depends_on.length,
-      color:  '#ccc' //getEdgeColor(m.rt)
+      color: '#ccc' //getEdgeColor(m.rt)
     }))
   ));
 
@@ -183,7 +223,7 @@ router.get('/graphTest', async function (req, res) {
     'label': m.label,
     'x': random(0, 100),
     'y': random(0, 100),
-    'size': 1.5 + hostsn.map(m => (m.depends_on)).flatMap(f => (f)).filter(x => (x === m.id)).length
+    'size': 2 + hostsn.map(m => (m.depends_on)).flatMap(f => (f)).filter(x => (x === m.id)).length
   }))
 
   const edges = hostsn.flatMap(m => (
@@ -209,7 +249,7 @@ function getNodeColor(status) {
     case 200:
       return 'green'
     default:
-      return 'gray';
+      return 'orange';
   }
 }
 
@@ -235,16 +275,41 @@ function random(min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
 }
 
-
 router.get('/listSslValid', async function (req, res) {
 
+  const dataset = await axios.get('http://localhost:3001/validSsl');
+  const arrData = Array.from(dataset.data);
+
+  res.json(arrData);
+});
+
+async function executeBatchValidSSL(){
   let hostsHttps = [...new Set(hosts.split('\n'))].filter(f => f.includes('https'));
   //if (!this.flagLoaded) return;
   const validArr = await verificarCertificadosSslEmLote(hostsHttps);
 
-  res.json(validArr);
-});
+  fetchPost('http://localhost:3001/validSsl', validArr).then((s) => {
+    console.log('executado com sucesso');
+  })
 
+  console.log('batch processado com sucesso!');
+}
+
+
+async function executeHttpMonitor(){
+
+  let listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
+
+  const responseList = await monitorHttpRequest(listHttp);
+
+  //console.log(responseList)
+  fetchPost('http://localhost:3001/tracks', responseList).then((s) => {
+    console.log(s);
+  })
+
+  console.log('batch processado com sucesso!');
+
+}
 
 
 router.get('/testeProcessoGpt2', async function (req, res) {

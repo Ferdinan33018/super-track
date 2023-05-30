@@ -48,10 +48,10 @@
 
 
      try {
-        const response = await fetch('http://localhost:3000/graphLogTrack');
+        const response = await fetch('/graphLogTrack');
         const res = await response.json();
 
-        s.graph.read(res.data[0]);
+        s.graph.read(res.data[0]); 
         // draw the graph
         s.refresh();
 
