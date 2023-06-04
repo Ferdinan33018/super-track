@@ -12,6 +12,7 @@ const geoip = require('geoip-lite');
 const { sendBatch2LogStash } = require('../utils/elastic');
 const { func } = require('prop-types');
 
+const processamentoEmLote = require('../utils/processamento.fila');
 
 
 var router = express.Router();
@@ -73,22 +74,67 @@ router.get('/getTrackScan', async function (req, res) {
 
 
 /**
+ * ATENCAO: funciona apenas com o npm run start (sem o dev)
  * Executar o banco json antes: npm run db
  * Obtem novas requisicoes a cada 2 min
  * http://localhost:3100/executeBatch
  */
 router.get('/executeBatch', async function (req, res) {
 
-  setInterval(async () => {
+  //setInterval(async () => {
     executeHttpMonitor();
     //console.log('>>>', respBatch.length); 
-  }, 10 * 1000);
+  //}, 10 * 1000);
 
   //executeHttpMonitor();
   //this.executeBatchValidSSL(); 
   //await monitorDNS(webAddresses);
-  res.json({ 'message': 'Batch em processamento ...', 'len:': 1 });
+  res.json({ 'message': 'Batch em processamento ...', 'len:': new Date().toLocaleString() });
 });
+
+// http://localhost:3100/getTimeLine
+router.get('/getTimeLine', async function (req, res) {
+
+  const dataset = await axios.get('http://localhost:3001/tracks');
+  const arrData = dataset.data.sort((a, b) => (b.ts - a.ts));
+
+  const group = arrData.reduce((acc, value) => {
+    let key = value.status;
+    if (!acc[key]) {
+      acc[key] = []; 
+    }
+
+    acc[key].push(value);
+
+    return acc
+  }, {})
+
+  const arr = [];
+  
+  Object.entries(group).forEach(f => {
+    arr.push({
+      name:  f[0],
+      total: f[1].length 
+    })
+  })
+
+
+ /**
+    const arr = Object.entries(group).map(m => ({
+    'name': m[0],
+    'data': m[1].length,
+    'categories': m[1].find(f => (f.ts === m.ts))
+
+  })).filter(f => (f.name != 0)) */
+
+  console.table(arr);
+
+  res.json({ 'message': 'Batch em processamento ...', 'len:': new Date().toLocaleString() });
+});
+
+function sleep(timeSec){
+  return new Promise(r => setTimeout(r, timeSec));
+}
 
 
 async function executeBatch() {
@@ -102,13 +148,14 @@ async function executeBatch() {
 async function fetchPost(url, arrObj) {
   try {
     //console.log('>>> ', arrObj);
+    const now = new Date().getTime();
 
     const resultados = await Promise.all(
       arrObj.map(async (obj) => {
         try {
 
           //adiciona o registro de log
-          obj.ts = new Date().getTime();
+          obj.ts = now;
 
           const resposta = await axios.post(url, obj);
           //console.log(resposta.status);
@@ -145,7 +192,7 @@ router.get('/a', function (req, res, next) {
   console.log('dir: ', __dirname);
   //res.sendFile('admin/index.html', { title: 'Express' });
   //res.sendFile(path.join(__dirname+'/admin/index.html'));
-  res.sendFile(path.join(__dirname + '/admin/index.html'));
+  res.sendFile(path.join(__dirname + '/admin/index.html')); 
   //__dirname : It will resolve to your project folder.
 });
 
@@ -327,6 +374,71 @@ router.get('/getCards', async function (req, res) {
 });
 
 
+// localhost
+router.get('/getStatusHosts', async function (req, res) {
+
+  const dataset = await axios.get('http://localhost:3001/tracks');
+  const arrData = getUniqueListBy(dataset.data, 'url').sort((a, b) => (b.ts - a.ts));
+
+  const arr = shuffle(arrData).map(m => ({
+      'host':   m.url,
+      'msg':    m.message,
+      'status': m.status,
+      'rt':     m.tempoDeResposta + 'ms',
+      'color':  getStatusColor(m.status)
+  })).slice(0, 20);
+  //console.log(arrData[0]);
+
+
+
+  res.json({ 'arrData': arr, 'last': new Date(arrData[0].ts).toLocaleString(), 'len': arrData.len });
+
+});
+
+
+function getStatusColor(status) {
+  const dict = {};
+  
+  dict[200] = 'bg-success';
+  dict[404] = 'bg-danger';
+  dict[401] = 'bg-secondary';
+  dict[500] = 'bg-warning';
+  dict[403] = 'bg-info';
+  dict[502] = 'bg-light';
+  dict[503] = 'bg-dark';
+  dict[400] = 'bg-primary';
+
+  return dict[status];
+}
+
+
+// localhost:3100/getStatusPie
+router.get('/getStatusPie', async function (req, res) { 
+
+  const dataset = await axios.get('http://localhost:3001/tracks');
+  const arrData = getUniqueListBy(dataset.data, 'url').sort((a, b) => (b.ts - a.ts));
+
+  const groupData = arrData.reduce((acc, value) => {
+    let key = value.status;
+    if (!acc[key]) {
+      acc[key] = 0;
+    }
+
+    acc[key]++;
+    return acc
+  }, {});
+
+  //console.log(groupData);
+
+
+  const arr0 = Object.entries(groupData).map(m => ({
+    'name':  m[0],
+    'value': m[1],
+  })).filter(f => f.name != 0);
+
+  res.json({ 'arrData': arr0, 'last': new Date(arrData[0].ts).toLocaleString() });
+})
+
 router.get('/getTestCards', async function (req, res) {
 
   const dataset = await axios.get('http://localhost:3001/tracks');
@@ -337,8 +449,8 @@ router.get('/getTestCards', async function (req, res) {
   //lote 0 é o mais atua
   const [lote1, lote0] = obterUltimosLotes(arrData, 404);
 
-  console.log("Parte 1:", lote0.length);
-  console.log("Parte 2:", lote1.length);
+  //console.log("Parte 1:", lote0.length);
+  //console.log("Parte 2:", lote1.length);
 
   const groupA = lote0.reduce((acc, value) => {
     let key = value.status;
@@ -373,23 +485,23 @@ router.get('/getTestCards', async function (req, res) {
     'lote': 1
   }))
 
-  console.table(arr0);
-  console.log('-----');
-  console.table(arr1);
+  //console.table(arr0);
+  //console.log('-----');
+  //console.table(arr1);
 
 
   const difPercentualList = arr0.map(m => {
     const f = arr1.find(obj => obj.status === m.status);
     if (f) {
-      console.log('tabela 1', f);
-      const dif = m.total/f.total;
+      //console.log('tabela 1', f);
+      const dif = m.total / f.total;
       const percentualDif = (dif - 1) * 100;
-      return { 
-        'status': m.status, 
+      return {
+        'status': m.status,
         'total': m.total,
         'percent': percentualDif.toFixed(1).concat('%'),
         'situacao': (percentualDif < 0) ? 'Melhorou' : 'Piorou',
-        'class':  (percentualDif < 0) ? 'text-success' : 'text-danger'
+        'class': (percentualDif < 0) ? 'text-success' : 'text-danger'
       };
     }
   })
@@ -414,6 +526,32 @@ router.get('/getTestCards', async function (req, res) {
 });
 
 
+
+function persistTimeLine(arrData){
+
+  const groupData = arrData.reduce((acc, value) => {
+    let key = value.status;
+    if (!acc[key]) {
+      acc[key] = 0;
+    }
+
+    acc[key]++;
+    return acc
+  }, {});
+
+  //console.log(groupData);
+
+
+  const arr0 = Object.entries(groupData).map(m => ({
+    'name':  m[0],
+    'value': m[1],
+    'ts': new Date().getTime()
+  })).filter(f => f.name != 0);
+
+  console.log('arr0', arr0 )
+
+}
+
 // localhost:3100/getDisponibilidade
 router.get('/getDisponibilidade', async function (req, res) {
 
@@ -421,14 +559,14 @@ router.get('/getDisponibilidade', async function (req, res) {
   const arrData = dataset.data;
 
   const arrMap = arrData.map(m => ({
-      host: m.url,
-      status: m.status 
+    host: m.url,
+    status: m.status
   }));
 
   const arrDisp = shuffle(calcularDisponibilidade(arrMap)).slice(0, 20);
-  
-  console.log(arrDisp[0]);
-  
+
+  //console.log(arrDisp[0]);
+
   res.json({ 'arrData': arrDisp, 'last': new Date(arrData[0].ts).toLocaleString(), 'len': arrDisp.length });
 
 });
@@ -439,8 +577,8 @@ router.get('/getDisponibilidade', async function (req, res) {
  */
 function shuffle(a) {
   for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
 }
@@ -470,7 +608,7 @@ function calcularDisponibilidade(listaHosts) {
     const { sucesso, total } = estatisticasHosts[host];
     const disponibilidade = (sucesso / total) * 100;
 
-    estatisticasDisponibilidade.push({'i':i+1, host, disponibilidade: disponibilidade.toFixed(1).concat('%') });
+    estatisticasDisponibilidade.push({ 'i': i + 1, host, disponibilidade: disponibilidade.toFixed(1).concat('%') });
   });
 
   return estatisticasDisponibilidade;
@@ -527,14 +665,34 @@ async function executeHttpMonitor() {
   let listHttp = [...new Set(hosts.split('\n'))].filter(f => f.includes('http'));
 
   const responseList = await monitorHttpRequest(listHttp);
+  console.log('qtd de requests: ', responseList.length);
 
-  //console.log(responseList)
-  fetchPost('http://localhost:3001/tracks', responseList).then((s) => {
-    console.log(s);
+  responseList.forEach((f,i) => {
+    processamentoEmLote.adicionarObjeto(f);
   })
 
-  console.log('batch processado com sucesso!');
+  //const filaCadastro = new ProcessamentoEmLote();
 
+    //filaCadastro.adicionar({ nome: 'Objeto 1', valor: 10 });
+    //filaCadastro.adicionar({ nome: 'Objeto 2', valor: 20 });
+    //filaCadastro.adicionar({ nome: 'Objeto 3', valor: 30 });
+
+  //const meuArray = Array.from({ length: 100 }, (_, index) => index + 1);
+
+  //const processamento = new ProcessamentoEmLote();
+  
+
+
+  //processamentoEmLote.processar();
+
+  /** responseList.forEach(f => {
+    filaCadastro.adicionarObjeto(f);
+  })**/
+  //persistTimeLine(responseList);
+  //cadastrarListaEmLote('http://localhost:3001/tracks', responseList);
+
+
+  console.log('batch processado com sucesso!');
 }
 
 

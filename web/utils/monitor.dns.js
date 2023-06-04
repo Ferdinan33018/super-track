@@ -22,6 +22,18 @@ module.exports = {
         });
     },
 
+    cadastroAsync: async function (url, arrData) {
+        console.log('executando lista...', arrData.length);
+        async.eachSeries(arrData, async(address, next) => {
+            const resposta = await axios.post(url, obj);
+           console.log(resposta.status);
+
+        }, (error) => {
+            console.error('Erro durante o monitoramento de DNS:', error.message);
+        });
+    },
+
+
     monitorarRespostasHTTP: async function (urls) {
         try {
             for (const url of urls) {
