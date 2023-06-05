@@ -3,6 +3,5 @@ web/utils/hosts.js
 .git_/*
 es792/*
 
-web/*
-db/db.json
+web/public/*
 db/db.json
