@@ -77,7 +77,8 @@ router.get('/getTimeline', async function (req, res) {
 
   const dataset = await axios.get('http://localhost:3001/timeline');
 
-  const arrData = dataset.data.sort((a, b) => (b.ts - a.ts));
+  const arrData = dataset.data.sort((a, b) => (a.ts - b.ts));
+  //console.log('len: ', arrData.length);
 
   const group = arrData.reduce((acc, value) => {
 
@@ -97,8 +98,8 @@ router.get('/getTimeline', async function (req, res) {
   Object.entries(group).forEach(f => {
     arr.push({
       'name':  f[0],
-      'total': f[1].map(m => (m.total)),
-      'date':  f[1].map(m => (new Date(m.ts).toJSON()))
+      'total': f[1].map(m => (m.total)).slice(-10),
+      'date':  f[1].map(m => (formatDateJsonLocale(m.ts))).slice(-10)
     })
   });
 
@@ -106,6 +107,11 @@ router.get('/getTimeline', async function (req, res) {
   res.json({ 'data': arr, 'len': arr.length, 'last_run': new Date().toLocaleString() });
 
 })
+
+function formatDateJsonLocale(ts){
+  const dt = new Date(ts); 
+  return new Date(ts - (dt.getTimezoneOffset() * 60000)).toJSON();
+}
 
 
 /**
@@ -115,13 +121,11 @@ router.get('/getTimeline', async function (req, res) {
  * http://localhost:3100/executeBatch
  */
 router.get('/executeBatch', async function (req, res) {
-
-
   setInterval(async () => {
     executeHttpMonitor();
     //console.log('>>>', respBatch.length); 
     console.log('executando novo batch em ', new Date().toLocaleString());
-  }, 3 * 60 * 1000);
+  }, 5 * 60 * 1000);
 
   //executeHttpMonitor();
   //this.executeBatchValidSSL(); 
