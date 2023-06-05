@@ -132,6 +132,7 @@ async function verificarRequisicaoEmBatch(urls) {
                         //'host': resposta.host,
                         //'port': resposta.port,
                         //'location':  geoip.lookup(ip)?.ll,
+                        'ts': new Date().getTime(),
                         'addr': ip,
                         'message': resposta.statusText,
                         'url': url,

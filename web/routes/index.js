@@ -72,6 +72,41 @@ router.get('/getTrackScan', async function (req, res) {
 });
 
 
+// http://localhost:3100/getTimeLine
+router.get('/getTimeline', async function (req, res) {
+
+  const dataset = await axios.get('http://localhost:3001/timeline');
+
+  const arrData = dataset.data.sort((a, b) => (b.ts - a.ts));
+
+  const group = arrData.reduce((acc, value) => {
+
+    let key = value.status;
+
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+
+    acc[key].push(value);
+
+    return acc;
+  }, {});
+
+  const arr = [];
+
+  Object.entries(group).forEach(f => {
+    arr.push({
+      'name':  f[0],
+      'total': f[1].map(m => (m.total)),
+      'date':  f[1].map(m => (new Date(m.ts).toJSON()))
+    })
+  });
+
+
+  res.json({ 'data': arr, 'len': arr.length, 'last_run': new Date().toLocaleString() });
+
+})
+
 
 /**
  * ATENCAO: funciona apenas com o npm run start (sem o dev)
@@ -81,10 +116,12 @@ router.get('/getTrackScan', async function (req, res) {
  */
 router.get('/executeBatch', async function (req, res) {
 
-  //setInterval(async () => {
+
+  setInterval(async () => {
     executeHttpMonitor();
     //console.log('>>>', respBatch.length); 
-  //}, 10 * 1000);
+    console.log('executando novo batch em ', new Date().toLocaleString());
+  }, 3 * 60 * 1000);
 
   //executeHttpMonitor();
   //this.executeBatchValidSSL(); 
@@ -92,16 +129,17 @@ router.get('/executeBatch', async function (req, res) {
   res.json({ 'message': 'Batch em processamento ...', 'len:': new Date().toLocaleString() });
 });
 
-// http://localhost:3100/getTimeLine
-router.get('/getTimeLine', async function (req, res) {
 
-  const dataset = await axios.get('http://localhost:3001/tracks');
-  const arrData = dataset.data.sort((a, b) => (b.ts - a.ts));
+async function addTimeline(arrReq) {
+
+  console.log(arrReq[0]);
+  //const dataset = await axios.get('http://localhost:3001/tracks');
+  const arrData = arrReq.sort((a, b) => (b.ts - a.ts)).slice(0, 1000);
 
   const group = arrData.reduce((acc, value) => {
     let key = value.status;
     if (!acc[key]) {
-      acc[key] = []; 
+      acc[key] = [];
     }
 
     acc[key].push(value);
@@ -110,32 +148,30 @@ router.get('/getTimeLine', async function (req, res) {
   }, {})
 
   const arr = [];
-  
+
+  const ts = new Date().getTime();
+
   Object.entries(group).forEach(f => {
     arr.push({
-      name:  f[0],
-      total: f[1].length 
+      'status': f[0],
+      'total': f[1].length,
+      'ts': ts
     })
-  })
+  });
 
+  await fetchPostV2('http://localhost:3001/timeline', arr);
+  console.log('timeline cadastrada com sucesso');
 
- /**
-    const arr = Object.entries(group).map(m => ({
-    'name': m[0],
-    'data': m[1].length,
-    'categories': m[1].find(f => (f.ts === m.ts))
+};
 
-  })).filter(f => (f.name != 0)) */
-
-  console.table(arr);
-
-  res.json({ 'message': 'Batch em processamento ...', 'len:': new Date().toLocaleString() });
-});
-
-function sleep(timeSec){
-  return new Promise(r => setTimeout(r, timeSec));
+async function realizarCadastro(url, objeto) {
+  try {
+    const response = await axios.post(url, objeto);
+    //console.log('Objeto cadastrado:', response.status);
+  } catch (error) {
+    throw new Error(`Erro ao cadastrar objeto: ${error.message}`);
+  }
 }
-
 
 async function executeBatch() {
   console.log('executando batch de carga de dados...');
@@ -145,25 +181,45 @@ async function executeBatch() {
   }, min * 60 * 1000);
 }
 
+async function fetchPostV2(url, listaObjetos) {
+  for (let i = 0; i < listaObjetos.length; i++) {
+    const objeto = listaObjetos[i];
+    try {
+      await axios.post(url, objeto);
+      console.log('Objeto cadastrado:', objeto);
+    } catch (error) {
+      console.error('Erro ao cadastrar objeto:', error.message);
+    }
+
+    // Aguardar 1 segundo antes de prosseguir para o próximo cadastro
+    await sleep(1000);
+  }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function fetchPost(url, arrObj) {
   try {
     //console.log('>>> ', arrObj);
-    const now = new Date().getTime();
+    //const now = new Date().getTime();
 
     const resultados = await Promise.all(
       arrObj.map(async (obj) => {
         try {
 
           //adiciona o registro de log
-          obj.ts = now;
+          //obj.ts = now;
 
           const resposta = await axios.post(url, obj);
+          await sleep(1000);
           //console.log(resposta.status);
           return {
             //url: url,
             //valido: certificado.valid,
             //diasRestantes: certificado.daysRemaining,
-            'url': url,
+            //'url': url,
             'status': resposta.status,
           };
 
@@ -192,7 +248,7 @@ router.get('/a', function (req, res, next) {
   console.log('dir: ', __dirname);
   //res.sendFile('admin/index.html', { title: 'Express' });
   //res.sendFile(path.join(__dirname+'/admin/index.html'));
-  res.sendFile(path.join(__dirname + '/admin/index.html')); 
+  res.sendFile(path.join(__dirname + '/admin/index.html'));
   //__dirname : It will resolve to your project folder.
 });
 
@@ -381,11 +437,11 @@ router.get('/getStatusHosts', async function (req, res) {
   const arrData = getUniqueListBy(dataset.data, 'url').sort((a, b) => (b.ts - a.ts));
 
   const arr = shuffle(arrData).map(m => ({
-      'host':   m.url,
-      'msg':    m.message,
-      'status': m.status,
-      'rt':     m.tempoDeResposta + 'ms',
-      'color':  getStatusColor(m.status)
+    'host': m.url,
+    'msg': m.message,
+    'status': m.status,
+    'rt': m.tempoDeResposta + 'ms',
+    'color': getStatusColor(m.status)
   })).slice(0, 20);
   //console.log(arrData[0]);
 
@@ -398,7 +454,7 @@ router.get('/getStatusHosts', async function (req, res) {
 
 function getStatusColor(status) {
   const dict = {};
-  
+
   dict[200] = 'bg-success';
   dict[404] = 'bg-danger';
   dict[401] = 'bg-secondary';
@@ -413,7 +469,7 @@ function getStatusColor(status) {
 
 
 // localhost:3100/getStatusPie
-router.get('/getStatusPie', async function (req, res) { 
+router.get('/getStatusPie', async function (req, res) {
 
   const dataset = await axios.get('http://localhost:3001/tracks');
   const arrData = getUniqueListBy(dataset.data, 'url').sort((a, b) => (b.ts - a.ts));
@@ -432,7 +488,7 @@ router.get('/getStatusPie', async function (req, res) {
 
 
   const arr0 = Object.entries(groupData).map(m => ({
-    'name':  m[0],
+    'name': m[0],
     'value': m[1],
   })).filter(f => f.name != 0);
 
@@ -521,13 +577,13 @@ router.get('/getTestCards', async function (req, res) {
       console.log(`Código ${f.status}: Diferença percentual ${percentualDiferenca}%`);
     }
   }); */
-  res.json({ 'arrData': difPercentualList.filter(f => (f != null)), 'last': new Date(arrData[0].ts).toLocaleString(), 'len': arrData.len });
+  res.json({ 'arrData': difPercentualList.filter(f => (f != null)), 'last': new Date(arrData[0].ts).toLocaleString(), 'len': arrData.length });
 
 });
 
 
 
-function persistTimeLine(arrData){
+function persistTimeLine(arrData) {
 
   const groupData = arrData.reduce((acc, value) => {
     let key = value.status;
@@ -543,12 +599,12 @@ function persistTimeLine(arrData){
 
 
   const arr0 = Object.entries(groupData).map(m => ({
-    'name':  m[0],
+    'name': m[0],
     'value': m[1],
     'ts': new Date().getTime()
   })).filter(f => f.name != 0);
 
-  console.log('arr0', arr0 )
+  console.log('arr0', arr0)
 
 }
 
@@ -666,21 +722,22 @@ async function executeHttpMonitor() {
 
   const responseList = await monitorHttpRequest(listHttp);
   console.log('qtd de requests: ', responseList.length);
+  await addTimeline(responseList);
 
-  responseList.forEach((f,i) => {
+  responseList.forEach((f, i) => {
     processamentoEmLote.adicionarObjeto(f);
   })
 
   //const filaCadastro = new ProcessamentoEmLote();
 
-    //filaCadastro.adicionar({ nome: 'Objeto 1', valor: 10 });
-    //filaCadastro.adicionar({ nome: 'Objeto 2', valor: 20 });
-    //filaCadastro.adicionar({ nome: 'Objeto 3', valor: 30 });
+  //filaCadastro.adicionar({ nome: 'Objeto 1', valor: 10 });
+  //filaCadastro.adicionar({ nome: 'Objeto 2', valor: 20 });
+  //filaCadastro.adicionar({ nome: 'Objeto 3', valor: 30 });
 
   //const meuArray = Array.from({ length: 100 }, (_, index) => index + 1);
 
   //const processamento = new ProcessamentoEmLote();
-  
+
 
 
   //processamentoEmLote.processar();
